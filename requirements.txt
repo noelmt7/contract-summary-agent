@@ -1,1 +1,10 @@
 streamlit
+typerstreamlit
+typer
+python-dotenv
+pandas
+nltk
+pymupdf
+python-docx
+openai
+phidata
