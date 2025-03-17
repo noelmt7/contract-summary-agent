@@ -7,13 +7,8 @@ from typing import Dict, Any, Iterator
 
 import spacy  # Move import to the right place
 
-import os 
-import subprocess
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"], check=True)
-    nlp = spacy.load("en_core_web_sm")
+# Load spaCy model
+nlp = spacy.load("en_core_web_sm")
 
 def ner_extraction(tender_text: str) -> dict:
     """
