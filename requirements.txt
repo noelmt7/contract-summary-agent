@@ -9,4 +9,4 @@ openai
 phidata
 spacy
 spacy
-en-core-web-sm
+# en-core-web-sm
