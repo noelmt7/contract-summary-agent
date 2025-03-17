@@ -150,3 +150,14 @@ EDITOR_SYSTEM_PROMPT = """You are an AI-powered legal document editor. Your task
 ---
 Return only the **edited summary** in the improved format. Do not include explanations or additional commentary.
 """
+
+NER_SYSTEM_PROMPT = """
+You are an expert in Named Entity Recognition (NER). Given a tender document, extract key entities such as:
+- Organization Names
+- Dates
+- Financial Figures
+- Locations
+- Legal Terms
+- Persons Mentioned
+Return the extracted entities in a structured format.
+"""
