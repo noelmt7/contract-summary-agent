@@ -1,11 +1,39 @@
 from phi.agent import Agent
 from phi.model.openai import OpenAIChat
 from phi.workflow import Workflow, RunResponse, RunEvent
-from config.constants import TEMPLATE_PARSER_SYSTEM_PROMPT, SUMMARY_GENERATION_SYSTEM_PROMPT, EDITOR_SYSTEM_PROMPT, NER_SYSTEM_PROMPT 
+from config.constants import (
+    TEMPLATE_PARSER_SYSTEM_PROMPT, 
+    SUMMARY_GENERATION_SYSTEM_PROMPT, 
+    EDITOR_SYSTEM_PROMPT, 
+    NER_SYSTEM_PROMPT  # Add a new system prompt for NER
+)
 from textwrap import dedent
 from typing import Iterator
 
-
+def generate_summary(
+        tender_text: str,
+        template_text: str
+) -> str:
+    """
+    Generate a structured summary of the contract or tender document based on a template and extracted entities.
+    
+    Args:
+        tender_text (str): The contract or tender document text.
+        template_text (str): The template document text.
+        entities (dict): Extracted entities such as organization names, dates, monetary amounts, locations, persons, and key terms.
+    
+    Returns:
+        str: A structured summary of the contract or tender document.
+    """
+    workflow = SummaryGenerationWorkflow()
+    for response in workflow.run(
+        tender_text=tender_text,
+        template_text=template_text
+    ):
+        if response.content:
+            return response.content
+        
+    raise ValueError("No Summary Generated")
 class SummaryGenerationWorkflow(Workflow):
 
     ner_agent: Agent = Agent(
