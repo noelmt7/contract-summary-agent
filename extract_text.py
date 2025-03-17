@@ -1,11 +1,8 @@
 import io
 import pymupdf  # PyMuPDF
 import docx
-from typing import List, Tuple 
 import re
 import docx
-from docx.table import _Cell, Table
-from docx.text.paragraph import Paragraph
 
 
 def extract_tables_from_docx(doc):

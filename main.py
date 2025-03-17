@@ -1,18 +1,15 @@
 import streamlit as st
 import typer
 from pathlib import Path
-import os
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent / '.env')
 import pandas as pd
-import io 
 import re
 import nltk 
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 import sys
-import pymupdf4llm
 from extract_text import text_extractor, extract_text
 from summary_generation import generate_summary, ner_extraction
 
