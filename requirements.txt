@@ -8,5 +8,3 @@ python-docx
 openai
 phidata
 spacy
-spacy
-git+https://github.com/explosion/spacy-models.git@en_core_web_sm-2.2.0#egg=en_core_web_sm
