@@ -106,7 +106,9 @@ def streamlit_ui():
             st.text(template_text)
 
         if st.button("Generate Summary"):
-            summary = generate_summary(tender_text, template_text)
+            with st.spinner("Generating summary..."):
+                summary = generate_summary(tender_text, template_text)
+            
             st.subheader("Summary")
             st.write(summary)
 
